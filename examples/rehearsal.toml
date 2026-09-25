@@ -1,0 +1,19 @@
+# Copy this file next to your backups directory and adapt the SQL to your schema.
+# Paths are relative to this configuration file, not the working directory.
+name = "Notes production backup"
+backup = "backups/app.sqlite"
+report_dir = ".rehearsal/reports"
+max_age = "24h"
+timeout = "30s"
+
+[[checks]]
+name = "Users survived"
+sql = "SELECT EXISTS(SELECT 1 FROM users)"
+
+[[checks]]
+name = "Notes table exists"
+sql = "SELECT EXISTS(SELECT 1 FROM sqlite_schema WHERE type = 'table' AND name = 'notes')"
+
+[[checks]]
+name = "Recent note exists"
+sql = "SELECT COALESCE(MAX(created_at) >= datetime('now', '-1 day'), 0) FROM notes"

@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Formatting
+        run: cargo fmt --all --check
+      - name: Lints
+        run: cargo clippy --locked --all-targets -- -D warnings
+      - name: Recovery and CLI tests
+        run: cargo test --locked
+      - name: Build executable
+        run: cargo build --locked --release

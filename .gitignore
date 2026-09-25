@@ -1,0 +1,10 @@
+/target/
+/.rehearsal/
+/rehearsal-demo/
+/rehearsal-broken-demo/
+/rehearsal.toml
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+.DS_Store
