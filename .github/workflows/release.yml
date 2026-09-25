@@ -38,6 +38,7 @@ jobs:
       MACOSX_DEPLOYMENT_TARGET: "11.0"
       CARGO_TARGET_X86_64_UNKNOWN_LINUX_MUSL_LINKER: musl-gcc
       CC_x86_64_unknown_linux_musl: musl-gcc
+      CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUSTFLAGS: "-C target-feature=+crt-static"
     steps:
       - uses: actions/checkout@v7
         with:

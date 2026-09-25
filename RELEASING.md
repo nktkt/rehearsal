@@ -3,6 +3,8 @@
 The [Release workflow](.github/workflows/release.yml) builds four native targets:
 Linux x64 (musl), Apple Silicon Mac, Intel Mac, and Windows x64. SQLite is bundled.
 Mac builds target macOS 11 or newer. Binaries are not developer-signed or notarized.
+Windows release builds link the C runtime statically so it does not need a
+separate Visual C++ runtime installation.
 
 Each build runs formatting, Clippy, and the Rust tests. It then creates an archive,
 extracts it, and checks the executable version, a successful drill, an intentionally
