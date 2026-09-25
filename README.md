@@ -29,6 +29,31 @@ Abbreviated output; actual runs also show details, durations, and the report pat
 
 ## Try it
 
+Download an archive from [GitHub Releases](https://github.com/nktkt/rehearsal/releases/latest).
+These executables include SQLite and run without installing Rust.
+
+| Computer | Choose the archive ending in |
+| --- | --- |
+| Linux x64 | `x86_64-unknown-linux-musl.tar.gz` |
+| Mac, Apple Silicon (macOS 11+) | `aarch64-apple-darwin.tar.gz` |
+| Mac, Intel (macOS 11+) | `x86_64-apple-darwin.tar.gz` |
+| Windows x64 | `x86_64-pc-windows-msvc.zip` |
+
+Extract it into a new directory, open a terminal there, and run:
+
+```sh
+./rehearsal demo
+./rehearsal history --config rehearsal-demo/rehearsal.toml
+```
+
+On Windows PowerShell, use `.\rehearsal.exe` in place of `./rehearsal`.
+You can move the executable into a directory on your `PATH` to use `rehearsal`
+from anywhere. Each archive has a matching SHA-256 checksum; see
+[download verification](RELEASING.md#verify-a-download). Mac and Windows binaries
+are unsigned, and Apple notarization is not included.
+
+## Build from source
+
 Install a current stable [Rust toolchain](https://rustup.rs/), then run these
 commands from this checkout. Building bundled SQLite also requires a C compiler
 (Xcode Command Line Tools on macOS; a build toolchain such as `build-essential`
@@ -60,8 +85,8 @@ cargo install --locked --path .
 rehearsal --help
 ```
 
-This project has not been published to crates.io. The source build is the
-installation method for this initial version.
+This project has not been published to crates.io. Use a GitHub release or build
+from this checkout.
 
 ## Check your backup
 

@@ -12,6 +12,31 @@ SQLiteを実行ファイルに同梱するため、利用時にSQLiteサーバ�
 
 ## まず試す
 
+[GitHub Releases](https://github.com/nktkt/rehearsal/releases/latest)から、
+自分のOSに合う圧縮ファイルをダウンロードしてください。Rustのインストールは不要です。
+
+| 環境 | ファイル名の末尾 |
+| --- | --- |
+| Linux x64 | `x86_64-unknown-linux-musl.tar.gz` |
+| Mac・Apple Silicon（macOS 11以降） | `aarch64-apple-darwin.tar.gz` |
+| Mac・Intel（macOS 11以降） | `x86_64-apple-darwin.tar.gz` |
+| Windows x64 | `x86_64-pc-windows-msvc.zip` |
+
+新しいフォルダに展開し、そのフォルダのターミナルで実行します。
+
+```sh
+./rehearsal demo
+./rehearsal history --config rehearsal-demo/rehearsal.toml
+```
+
+WindowsのPowerShellでは、`./rehearsal`を`.\rehearsal.exe`に置き換えてください。
+実行ファイルをPATHの通ったディレクトリへ移動すれば、どこからでも起動できます。
+各ファイルにSHA-256チェックサムを添付しています。
+[照合方法](RELEASING.md#verify-a-download)も参照してください。
+Mac・Windowsの実行ファイルは署名なしで、Appleの公証も含みません。
+
+## ソースからビルドする
+
 最新の安定版RustとCコンパイラが必要です。macOSではXcode Command Line Tools、
 Ubuntuでは`build-essential`などを利用できます。このフォルダで実行します。
 
@@ -41,7 +66,8 @@ cargo install --locked --path .
 rehearsal --help
 ```
 
-初版はソースからインストールします。crates.ioには未公開です。
+GitHub Releasesからのダウンロード、またはソースからのインストールを利用できます。
+crates.ioには未公開です。
 
 ## 自分のバックアップを検証
 

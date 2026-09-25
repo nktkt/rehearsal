@@ -8,7 +8,7 @@ keywords = ["sqlite", "backup", "restore", "cli"]
 categories = ["command-line-utilities", "database"]
 readme = "README.md"
 repository = "https://github.com/nktkt/rehearsal"
-exclude = [".github/", "rehearsal-demo/", "rehearsal-broken-demo/", ".rehearsal/"]
+exclude = [".github/", "dist/", "scripts/", "rehearsal-demo/", "rehearsal-broken-demo/", ".rehearsal/"]
 
 [dependencies]
 anyhow = "1"

@@ -38,7 +38,8 @@ restore failure, verification failure, and operational failure.
 The source repository is [nktkt/rehearsal](https://github.com/nktkt/rehearsal).
 The executable and package currently use the name `rehearsal`. Confirm registry
 name availability before the first crates.io release. There is no automated
-publishing workflow.
+crates.io publishing workflow. Binary releases on GitHub are automated; see
+[RELEASING.md](RELEASING.md).
 
 Run `cargo package --locked --allow-dirty` to verify a source package locally;
 review its contents with `cargo package --list`. Publishing is a separate action.

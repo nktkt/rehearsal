@@ -1,4 +1,6 @@
 /target/
+/dist/
+__pycache__/
 /.rehearsal/
 /rehearsal-demo/
 /rehearsal-broken-demo/
